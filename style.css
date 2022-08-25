@@ -1,0 +1,134 @@
+
+body{
+    background-color:burlywood;
+
+}
+
+h1{
+    text-align: center;
+}
+ 
+.large{
+    background-color: crimson;
+}
+
+.medium{
+    background-color: cornflowerblue;
+}
+
+.small{
+    background-color: greenyellow;
+}
+
+.pizza{
+    border: solid brown;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    
+}
+
+.pizza-contact{
+    background-color:goldenrod;
+    border: solid brown;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.contact{
+    display: flex;
+    text-emphasis: bold;
+    font-weight: 300;
+    font-family:Impact, bold ;
+}
+
+@media(min-width:940px){
+    .pizzas{
+        display: flex;
+        /*background-color: blue;*/
+    }
+    .pizza{
+        flex:1;
+        
+    }
+
+    .body{
+        background-color: darkgray;
+    }
+    
+}
+
+.cart{
+    background-color: chartreuse;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    
+}
+
+table{
+    font-size: larger;
+    font-weight: bold;
+    text-align: left;
+    display: inline-block;
+    border-collapse:separate;
+}
+table tr, table td{
+    text-align: center;
+    width:5em;
+    height: 2em;
+    
+}
+table td > button{
+
+    margin: 0.2em;
+    font-weight: bold;
+ 
+}
+
+.check p{
+    background-color: azure;
+    width: 8em;
+    margin: auto;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.check-b{
+    font-weight: bold;
+    font-size: 2em;
+    margin: auto;
+
+}
+
+.check-cart{
+    font-weight: bold;
+    height:6em;
+    font-size: 2em;
+}
+
+.buy{
+    text-align:center;
+    margin: 1em;
+}
+.buy > button{
+    font-weight: bold;
+    font-size: 1.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+    width: 15em;
+    margin: auto;
+}
+.td-span{
+    margin-left: 0.3em;
+}
+.paystat{
+    margin: auto;
+    margin-top: 0.3em;
+    text-align: center;
+    background-color: antiquewhite;
+    border: solid;
+    border-radius: 1em;
+    width: 10em;
+    height: 1em;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Rev 1.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <h1>PERFECT PIZZA</h1>
+    <div style="background-color: blue;" class="cart" x-data="{
+        smqt:0,
+        smpr:0,
+        midqt:0,
+        midpr:0,
+        lrgqt:0,
+        lrgpr: 0,
+        tpr:0,
+        payShow: false,
+        payment: '',
+        payStatement: '',
+        
+        smallpAd(){
+            this.smpr += 49.99;
+            this.smqt++;
+        },
+        smallpMs(){
+            if(this.smqt>0){
+                this.smpr -= 49.99;
+                this.smqt--;
+            }
+            
+        },
+        midpAd(){
+            this.midpr += 89.00;
+            this.midqt++;
+        },
+        midpMs(){
+            if(this.midqt>0){
+                this.midpr -= 89.00;
+                this.midqt--;
+            }
+            
+        },
+        lrgpAd(){
+            this.lrgpr += 129.99;
+            this.lrgqt++;
+        },
+        lrgpMs(){
+            if(this.lrgqt>0){
+                this.lrgpr -= 129.99;
+                this.lrgqt--;
+            }
+            
+        },
+        total(){
+            this.tpr = (this.smpr + this.midpr + this.lrgpr).toFixed(2);
+            return this.tpr;
+        },
+        payhere(){
+            if(this.payment - this.tpr >= 0){
+                this.payStatement = 'Payment Successful!';
+            }
+            else{
+                this.payStatement = 'Payment Declined'
+            }
+        }
+
+    }">
+        <h2>Shopping Cart</h2>
+        <table>
+            <tr>
+                <td>small</td>
+                <td><button x-on:click="smallpAd">+</button><button @click="smallpMs">-</button><span class="td-span"
+                        x-text="smqt"></span></td>
+                <td>R<span x-text="smpr.toFixed(2)"></span></td>
+            </tr>
+            <tr>
+                <td>medium</td>
+                <td><button x-on:click="midpAd">+</button><button @click="midpMs">-</button><span class="td-span"
+                        x-text="midqt"></span></td>
+                <td>R<span x-text="midpr.toFixed(2)"></span></td>
+            </tr>
+            <tr>
+                <td>large</td>
+                <td><button x-on:click="lrgpAd">+</button><button @click="lrgpMs">-</button><span class="td-span"
+                        x-text="lrgqt"></span></td>
+                <td>R<span x-text="lrgpr.toFixed(2)"></span></td>
+            </tr>
+            <tr>
+                <td style="text-align: end;">Total Cost</td>
+                <td></td>
+                <td>R<span x-text="total"></span></td>
+            </tr>
+        </table>
+
+        <div class="check-b">
+            <button @click="payShow = true">Check-Out</button>
+        </div>
+
+        <div x-show="payShow" class="check">
+            <div class="check-cart">
+                <label for="pay">Payment:</label>
+                <input type="text" id="pay" x-model="payment">
+                <button @click="payhere">Pay</button>
+                <div class="paystat" x-text="payStatement"></div>
+            </div>
+        </div>
+
+        <!--============================================PIZZAs====================================================-->
+        <div class="pizzas">
+            <div class="medium pizza">
+                <h1>Medium Pizza</h1>
+                <img src="pizza1.png" width="160">
+                <h2>R89.00</h2>
+                <div>
+                    meduim margeritha pizza with 3
+                    toppings max. 2 or less meat topping. 3
+                    or less other toppings.
+                </div>
+                <div class="buy">
+                    <button @click="midpAd">BUY</button>
+                </div>
+            </div>
+
+            <div class="large pizza">
+                <h1>Large Pizza</h1>
+                <img src="pizza1.png" width="200 em">
+                <h2>R129.99</h2>
+                <div>
+                    large margeritha pizza with 3
+                    toppings max. 2 or less meat topping. 3
+                    or less other toppings.
+                </div>
+                <div class="buy">
+                    <button x-on:click="lrgpAd">BUY</button>
+                </div>
+            </div>
+
+            <div class="small pizza">
+                <h1>Small Pizza</h1>
+                <img src="pizza1.png" width="90">
+                <h2>R49.99</h2>
+                <div>
+                    small pizza with 3 toppings 1 meat topping.
+                    3 or less other toppings
+                </div>
+                <div class="buy">
+                    <button x-on:click="smallpAd">BUY</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="pizza-contact">
+            <h2>Contact us at: (021)-541-1000 twitter</h2>
+            <div class="contact">
+                <div class="contact1">
+                    /fb <br>
+                    /insta <br>
+                    @perfectpizza
+                </div>
+                <div style="margin-left: 20em;">
+                    Pizza Plaza <br>
+                    Dough Road <br>
+                    Base Town
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
